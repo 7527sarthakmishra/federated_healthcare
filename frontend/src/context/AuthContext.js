@@ -5,29 +5,20 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const initializeAuth = async () => {
       const token = localStorage.getItem('fedhealth_token');
       const savedUser = localStorage.getItem('fedhealth_user');
 
-      if (token) {
-        if (savedUser) {
-          try {
-            setUser(JSON.parse(savedUser));
-          } catch (e) {
-            console.error('Failed to parse cached user:', e);
-          }
-        }
+      if (token && savedUser) {
         try {
-          const profile = await authAPI.getProfile();
-          if (profile) {
-            setUser(profile);
-            localStorage.setItem('fedhealth_user', JSON.stringify(profile));
-          }
-        } catch (error) {
-          console.warn('Backend unavailable, proceeding with cached user credentials.');
+          setUser(JSON.parse(savedUser));
+        } catch (e) {
+          localStorage.removeItem('fedhealth_token');
+          localStorage.removeItem('fedhealth_user');
+          setUser(null);
         }
       }
       setLoading(false);
@@ -40,19 +31,21 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await authAPI.login({ email, password });
-      const token = response.access_token || response.token || 'mock-token';
+      const token = response.access_token || response.token;
       const userData = response.user || {
         email,
         username: email.split('@')[0],
         role: email.includes('admin') ? 'admin' : 'researcher',
       };
 
-      localStorage.setItem('fedhealth_token', token);
+      if (token) {
+        localStorage.setItem('fedhealth_token', token);
+      }
       localStorage.setItem('fedhealth_user', JSON.stringify(userData));
       setUser(userData);
       return { success: true };
     } catch (error) {
-      const message = error.response?.data?.detail || error.response?.data?.message || 'Login failed. Please check your credentials.';
+      const message = error.response?.data?.detail || error.response?.data?.message || 'Invalid username or password. Please try again.';
       return { success: false, error: message };
     } finally {
       setLoading(false);

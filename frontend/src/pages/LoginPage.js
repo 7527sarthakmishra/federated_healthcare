@@ -4,8 +4,8 @@ import { FiShield, FiLock, FiMail, FiAlertCircle } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext';
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('demo@fedhealth.org');
-  const [password, setPassword] = useState('FedHealth2026!');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
@@ -32,11 +32,11 @@ const LoginPage = () => {
 
   const handleDemoFill = (role) => {
     if (role === 'admin') {
-      setEmail('admin@fedhealth.org');
-      setPassword('AdminFed2026!');
+      setEmail('admin@fedhealth.com');
+      setPassword('admin123');
     } else {
-      setEmail('researcher@fedhealth.org');
-      setPassword('Research2026!');
+      setEmail('researcher@fedhealth.com');
+      setPassword('researcher123');
     }
   };
 
