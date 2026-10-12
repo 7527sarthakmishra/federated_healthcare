@@ -98,8 +98,8 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/7527sarthakmishra/federated-healthcare-platform.git
-cd federated-healthcare-platform
+git clone https://github.com/7527sarthakmishra/federated_healthcare.git
+cd federated_healthcare
 ```
 
 ### 2. Backend Setup
@@ -344,7 +344,7 @@ If you use this platform in your research, please cite:
   author = {Mishra, Sarthak},
   title = {FedHealth: Privacy-Preserving Federated Learning Platform for Multi-Hospital Disease Prediction},
   year = {2026},
-  url = {https://github.com/7527sarthakmishra/federated-healthcare-platform}
+  url = {https://github.com/7527sarthakmishra/federated_healthcare}
 }
 ```
 

@@ -2,7 +2,7 @@
 
 **Author:** Sarthak Mishra  
 **Affiliation:** Department of Computer Science & Engineering  
-**Repository:** [https://github.com/7527sarthakmishra/federated-healthcare-platform](https://github.com/7527sarthakmishra/federated-healthcare-platform)  
+**Repository:** [https://github.com/7527sarthakmishra/federated_healthcare](https://github.com/7527sarthakmishra/federated_healthcare)  
 **Date:** October 2026  
 
 ---
