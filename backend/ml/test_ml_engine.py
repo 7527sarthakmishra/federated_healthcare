@@ -3,9 +3,10 @@
 import sys
 import os
 
-# Add paths to test both import styles
-backend_dir = r"C:\Users\harsh\.gemini\antigravity\scratch\federated-healthcare-platform\backend"
-parent_dir = r"C:\Users\harsh\.gemini\antigravity\scratch\federated-healthcare-platform"
+# Add paths dynamically to support running from any directory and in CI
+curr_dir = os.path.dirname(os.path.abspath(__file__))
+backend_dir = os.path.dirname(curr_dir)
+parent_dir = os.path.dirname(backend_dir)
 
 if backend_dir not in sys.path:
     sys.path.insert(0, backend_dir)
