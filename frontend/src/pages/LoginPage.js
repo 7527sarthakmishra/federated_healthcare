@@ -34,9 +34,12 @@ const LoginPage = () => {
     if (role === 'admin') {
       setEmail('admin@fedhealth.com');
       setPassword('admin123');
-    } else {
+    } else if (role === 'researcher') {
       setEmail('researcher@fedhealth.com');
       setPassword('researcher123');
+    } else {
+      setEmail('visitor@fedhealth.org');
+      setPassword('guest123');
     }
   };
 
@@ -96,16 +99,16 @@ const LoginPage = () => {
             <button
               type="button"
               className="badge-button"
-              onClick={() => handleDemoFill('admin')}
+              onClick={() => handleDemoFill('researcher')}
             >
-              Admin Mode
+              Researcher Demo
             </button>
             <button
               type="button"
               className="badge-button"
-              onClick={() => handleDemoFill('researcher')}
+              onClick={() => handleDemoFill('guest')}
             >
-              Researcher Mode
+              Guest / Visitor
             </button>
           </div>
 
@@ -115,6 +118,17 @@ const LoginPage = () => {
             disabled={loading}
           >
             {loading ? 'Authenticating & Verifying DP Node...' : 'Sign In to Secure Node'}
+          </button>
+
+          <button
+            type="button"
+            className="btn btn-outline btn-block mt-2"
+            onClick={async () => {
+              await login('visitor@fedhealth.org', 'GuestView2026!');
+              navigate('/dashboard');
+            }}
+          >
+            👀 Explore Live Demo (Read-Only Guest)
           </button>
         </form>
 
