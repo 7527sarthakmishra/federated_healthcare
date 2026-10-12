@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software or research framework in your research, please cite it as below."
+authors:
+  - family-names: "Mishra"
+    given-names: "Sarthak"
+    affiliation: "Department of Computer Science & Engineering"
+title: "FedHealth: Privacy-Preserving Federated Learning Platform for Multi-Hospital Disease Prediction"
+version: 1.0.0
+date-released: 2026-10-12
+url: "https://github.com/7527sarthakmishra/federated-healthcare-platform"
+keywords:
+  - "federated learning"
+  - "differential privacy"
+  - "healthcare ai"
+  - "disease prediction"
+  - "deep learning"
+  - "multi-hospital"
+license: "MIT"
