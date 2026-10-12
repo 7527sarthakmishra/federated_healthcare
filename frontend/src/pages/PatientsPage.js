@@ -86,19 +86,26 @@ const PatientsPage = () => {
   }
 
   // Filter logic
-  const filtered = patients.filter((p) => {
+  const filtered = (patients || []).filter((p) => {
+    if (!p) return false;
+    const pId = String(p.id || '');
+    const pHosp = String(p.hospital || '');
     const matchSearch =
-      p.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      p.hospital.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchHosp = filterHospital === 'All' || p.hospital.includes(filterHospital);
+      pId.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      pHosp.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchHosp = filterHospital === 'All' || pHosp.includes(filterHospital);
     return matchSearch && matchHosp;
   });
 
   const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
   const currentRecords = filtered.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
-  const avgAge = (patients.reduce((sum, p) => sum + Number(p.age), 0) / patients.length || 0).toFixed(1);
-  const avgBMI = (patients.reduce((sum, p) => sum + Number(p.bmi), 0) / patients.length || 0).toFixed(1);
+  const avgAge = patients && patients.length > 0 
+    ? (patients.reduce((sum, p) => sum + (Number(p.age) || 0), 0) / patients.length).toFixed(1)
+    : '0.0';
+  const avgBMI = patients && patients.length > 0
+    ? (patients.reduce((sum, p) => sum + (Number(p.bmi) || 0), 0) / patients.length).toFixed(1)
+    : '0.0';
 
   return (
     <div className="page-container">

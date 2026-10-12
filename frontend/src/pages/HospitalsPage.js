@@ -53,10 +53,10 @@ const HospitalsPage = () => {
     return <LoadingSpinner message="Scanning hospital nodes and verifying federated connections..." />;
   }
 
-  const chartData = hospitals.map(h => ({
-    name: h.name.split(' ')[0],
-    patients: h.patients_count,
-    contribution: h.contribution_score
+  const chartData = (hospitals || []).map(h => ({
+    name: (h.name || `Hospital ${h.id}`).split(' ')[0],
+    patients: Number(h.patients_count) || 0,
+    contribution: Number(h.contribution_score) || 0
   }));
 
   return (
