@@ -3,7 +3,16 @@ message: "If you use this software or research framework in your research, pleas
 authors:
   - family-names: "Mishra"
     given-names: "Sarthak"
-    affiliation: "Department of Computer Science & Engineering"
+    email: "sarthak.mishra2023@vitstudent.ac.in"
+    affiliation: "Vellore Institute of Technology, Chennai"
+  - family-names: "Handa"
+    given-names: "Stuti"
+    email: "stuti.handa2023@vitstudent.ac.in"
+    affiliation: "Vellore Institute of Technology, Chennai"
+  - family-names: "Malhotra"
+    given-names: "Lavanaya"
+    email: "lavanaya.malhotra2023@vitstudent.ac.in"
+    affiliation: "Vellore Institute of Technology, Chennai"
 title: "FedHealth: Privacy-Preserving Federated Learning Platform for Multi-Hospital Disease Prediction"
 version: 1.0.0
 date-released: 2026-10-12

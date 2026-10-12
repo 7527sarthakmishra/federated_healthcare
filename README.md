@@ -10,6 +10,14 @@
   <img src="docs/architecture.png" alt="FedHealth Architecture" width="800">
 </p>
 
+## 👥 Researchers & Authors
+
+- **Sarthak Mishra** (`sarthak.mishra2023@vitstudent.ac.in`)
+- **Stuti Handa** (`stuti.handa2023@vitstudent.ac.in`)
+- **Lavanaya Malhotra** (`lavanaya.malhotra2023@vitstudent.ac.in`)
+
+*School of Computer Science and Engineering, Vellore Institute of Technology (VIT), Chennai, India*
+
 ## 📋 Overview
 
 **FedHealth** is a privacy-preserving federated learning platform that enables multiple hospitals to collaboratively train disease prediction models **without sharing raw patient data**. The platform implements Federated Averaging (FedAvg) with Differential Privacy guarantees, allowing healthcare institutions to benefit from collective intelligence while maintaining strict HIPAA-compliant data privacy.
@@ -127,7 +135,7 @@ The backend will:
 - Email: `admin@fedhealth.com`
 - Password: `admin123`
 
-### 3. Frontend Setup
+### 3. Frontend Setup (Local)
 
 ```bash
 cd frontend
@@ -136,6 +144,26 @@ npm start
 ```
 
 The frontend will start at `http://localhost:3000`
+
+### 4. Deploying Frontend to Vercel
+
+The platform is pre-configured for seamless one-click Vercel deployment:
+
+#### Option A: Via Vercel Web Dashboard
+1. Go to [https://vercel.com/new](https://vercel.com/new).
+2. Connect your GitHub account and import `7527sarthakmishra/federated_healthcare`.
+3. In **Root Directory**, select `frontend` (or leave as root; `vercel.json` will route automatically).
+4. In **Environment Variables**, add:
+   - `REACT_APP_API_URL`: Your backend API URL (e.g., `https://your-backend.onrender.com` or leave empty for offline demo mode).
+5. Click **Deploy**. Vercel will build and deploy the React Single Page Application with full routing and responsive analytics dashboards!
+
+#### Option B: Via Vercel CLI
+```bash
+npm install -g vercel
+vercel login
+cd frontend
+vercel --prod
+```
 
 ## 📁 Project Structure
 
